@@ -1,0 +1,9 @@
+{
+  "name": "com.opencode.sidepanel",
+  "description": "OpenCode Side Panel native messaging host",
+  "path": "D:\\AI\\opencode-brave-sidepanel\\host.bat",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://doalinpdlhhbajafdhbekoggfjafjgfg/"
+  ]
+}

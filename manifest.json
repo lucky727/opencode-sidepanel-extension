@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "OpenCode Sidepanel Extension",
+  "description": "Opens the OpenCode web interface in Brave's native Side Panel, with tab context and AI browsing glow.",
+  "version": "1.0.0",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgaFE0iOTqhEjz/kW+H6vWs1ZL0tpCBLpsczu+KZM18qgGcJStZEo0XaBus/AOanacM/Oo6F3WGIykUtgdF7lKzxodfatFVtNcxG0KShQVzrRcrIb9s6uJwuf+644cq52kT+gonhVo55QGoBxhYGp6+oLF+gx8zDmOu9xbBrcqOLordihSZND6LyrIiMEEZYfleVnmOfLiZG+h8rMobrOe7s4z38/E3hARh0jfqI1f9Q7rTW8fHSsbFiba9Z4/ksPnnuOrRH3mp81kqxc67z7G9i4fVoGOWQNF5faNK9qFN7BWDWHGojimn1spipTrDexzx1CE72pL52pRV5bBPKtaQIDAQAB",
+  "permissions": ["sidePanel", "nativeMessaging", "activeTab", "tabs", "scripting", "clipboardWrite", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "action": {
+    "default_title": "OpenCode",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://127.0.0.1:4096/*", "http://localhost:4096/*"],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ]
+}
